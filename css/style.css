@@ -1,0 +1,296 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: #1a472a;
+    background: radial-gradient(ellipse at center, #1f5c35 0%, #163d24 50%, #0d2416 100%);
+    animation: respirar 6s ease-in-out infinite alternate;
+}
+
+@keyframes respirar {
+    0%   { background: radial-gradient(ellipse at center, #1f5c35 0%, #163d24 50%, #0d2416 100%); }
+    100% { background: radial-gradient(ellipse at center, #256b3e 0%, #1a472a 50%, #0f2d1a 100%); }
+}
+
+.marca-agua {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 100;
+    text-align: right;
+    pointer-events: none;
+    font-family: 'Playfair Display', serif;
+}
+
+.marca-agua-caja {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid rgba(201, 168, 76, 0.4);
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.35);
+    position: relative;
+}
+
+.marca-agua-caja::before {
+    content: "";
+    position: absolute;
+    top: -4px; left: -4px;
+    width: 12px; height: 12px;
+    border-top: 2px solid #c9a84c;
+    border-left: 2px solid #c9a84c;
+}
+.marca-agua-caja::after {
+    content: "";
+    position: absolute;
+    bottom: -4px; right: -4px;
+    width: 12px; height: 12px;
+    border-bottom: 2px solid #c9a84c;
+    border-right: 2px solid #c9a84c;
+}
+
+.marca-agua-caja span {
+    display: block;
+    color: rgba(201, 168, 76, 0.85);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.marca-agua-nombre {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    font-style: normal !important;
+    color: rgba(220, 195, 120, 1) !important;
+}
+
+/* ── PERSONAJE ── */
+.monopolio {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+}
+
+.cabeza {
+    position: absolute;
+    width: 300px;
+    height: 270px;
+    background: #ffdbac;
+    top: 180px;
+    left: 50px;
+    border-radius: 50% 50% 45% 45%;
+    box-shadow: inset -2px -5px 10px rgba(0,0,0,0.1);
+}
+
+.sombrero {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    background: black;
+    top: 40px;
+    left: 100px;
+    z-index: 10;
+    border-radius: 8px 8px 0 0;
+}
+.sombrero::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: -35px;
+    width: 270px;
+    height: 35px;
+    background: black;
+    border-radius: 50px;
+}
+.linea_sombrero {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    background: #27ae60;
+}
+
+.ceja {
+    position: absolute;
+    width: 45px;
+    height: 10px;
+    background: #000;
+    top: 60px;
+    border-radius: 5px;
+}
+.ceja.izquierda { left: 60px; transform: rotate(-10deg); }
+.ceja.derecha   { right: 60px; transform: rotate(10deg); }
+
+.ojo {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #000;
+    border-radius: 50%;
+    top: 90px;
+}
+.ojo.izquierdo { left: 75px; }
+.ojo.derecho   { right: 75px; animation: guino 4s infinite step-end; }
+
+.monoculo {
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border: 4px solid gold;
+    border-radius: 50%;
+    top: 70px;
+    right: 50px;
+    background: rgba(255,255,255,0.1);
+    z-index: 11;
+}
+
+.nariz {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+    border-radius: 50%;
+    top: 140px;
+    left: 135px;
+}
+
+.mustache-scaler {
+    position: absolute;
+    top: 75px;
+    left: 150px;
+    transform: scale(0.6);
+    z-index: 20;
+}
+
+.mustache {
+    width: 180px;
+    height: 180px;
+    left: -315px;
+    top: -120px;
+    border-radius: 50%;
+    position: absolute;
+    color: white;
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2));
+    box-shadow:
+        150px 240px 0 0 currentColor,
+        300px 240px 0 0 currentColor;
+}
+
+.mustache::before {
+    content: " ";
+    position: absolute;
+    left: 30px;
+    top: 120px;
+    width: 210px;
+    height: 120px;
+    border-bottom: solid 180px currentColor;
+    border-radius: 0 0 0 100%;
+    transform-origin: right 210px;
+    animation: bigoteIzq 1s ease-in-out infinite;
+}
+
+.mustache::after {
+    content: " ";
+    position: absolute;
+    left: 390px;
+    top: 120px;
+    width: 210px;
+    height: 120px;
+    border-bottom: solid 180px currentColor;
+    border-radius: 0 0 100% 0;
+    transform-origin: left 210px;
+    animation: bigoteDer 1s ease-in-out infinite;
+}
+
+@keyframes bigoteIzq {
+    0%, 100% { transform: rotate(-50deg); }
+    50%      { transform: rotate(-30deg); }
+}
+@keyframes bigoteDer {
+    0%, 100% { transform: rotate(50deg); }
+    50%      { transform: rotate(30deg); }
+}
+@keyframes guino {
+    0%, 90%  { transform: scaleY(1);   }
+    95%      { transform: scaleY(0.1); }
+}
+
+.traje {
+    position: absolute;
+    width: 350px;
+    height: 150px;
+    top: 420px;
+    left: 25px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.camisa {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 125px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid white;
+    z-index: 2;
+}
+
+.traje-izquierda, .traje-derecha {
+    position: absolute;
+    width: 180px;
+    height: 200px;
+    background: #1a1a1a;
+    border-radius: 40px 40px 0 0;
+    z-index: 1;
+}
+.traje-izquierda { 
+    left: 0;  
+    transform: rotate(-5deg); 
+}
+.traje-derecha   { 
+    right: 0; 
+    transform: rotate(5deg);  
+}
+
+.corbata {
+    position: absolute;
+    top: 10px;
+    left: 145px;
+    width: 60px;
+    height: 30px;
+    z-index: 10;
+}
+.corbata-centro {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #444;
+    left: 22px;
+    top: 7px;
+    border-radius: 3px;
+    z-index: 2;
+}
+.corbata-izquierda, .corbata-derecha {
+    position: absolute;
+    width: 30px;
+    height: 25px;
+    background: #333;
+    border: 1px solid #111;
+}
+.corbata-izquierda { 
+    left: 0;  
+    border-radius: 5px 2px 2px 5px; 
+    transform: skewY(10deg);  
+}
+
+.corbata-derecha   { 
+    right: 0; 
+    border-radius: 2px 5px 5px 2px; 
+    transform: skewY(-10deg); 
+}
