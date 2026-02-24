@@ -294,3 +294,10 @@ body {
     border-radius: 2px 5px 5px 2px; 
     transform: skewY(-10deg); 
 }
+.cabeza2{
+    width: 200px;
+    height: 200px;
+    background-color: #c9a84c;
+    border-radius: 50%;
+    position: absolute;
+}
